@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="miColor">
+    <ion-title>TUTORIALES</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal/principal"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [value]="searchTerm" (ionInput)="filterVideos($event)"></ion-searchbar>
+
+  
+  <ion-list>
+    <ion-card *ngFor="let video of filteredVideos">
+      <ion-card-header>
+        <strong>{{ video.titulo }}</strong>
+      </ion-card-header>
+      <ion-card-content>
+        <a [href]="video.url_contenido" target="_blank" rel="noopener noreferrer">
+          <div class="video-placeholder">
+            <ion-icon name="play-circle" size="large"></ion-icon>
+          </div>
+        </a>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
