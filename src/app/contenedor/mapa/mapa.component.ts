@@ -47,10 +47,8 @@ export class MapaComponent {
     );
   }
   mostrarUbicacionActual() {
-    // Habilitar la ubicación en el mapa
     this.map.locate({ setView: true, maxZoom: 14 });
-  
-    // Manejar el evento de ubicación encontrada
+
     this.map.on('locationfound', (e) => {
       const icon = new Icon({
         iconUrl: 'assets/icon/people.png', // Ruta a la imagen de la persona

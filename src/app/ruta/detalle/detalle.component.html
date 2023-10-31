@@ -1,3 +1,65 @@
-<p>
-  detalle works!
-</p>
+<ion-header>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  <ion-toolbar color="miColor">
+    <ion-title>DETALLE RUTA</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ruta/mapa"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ detalle.nombre_ruta }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label>Código de Vehículo:</ion-label>
+          <ion-text>{{ detalle.codigo_vehiculo }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Distrito:</ion-label>
+          <ion-text>{{ detalle.distrito }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hora de Inicio:</ion-label>
+          <ion-text>{{ detalle.hora_inicio }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hora de Fin:</ion-label>
+          <ion-text>{{ detalle.hora_fin }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Peso:</ion-label>
+          <ion-text>{{ detalle.peso }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Distancia:</ion-label>
+          <ion-text>{{ detalle.distancia }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Frecuencias de Recolección</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let frecuencia of frecuencias">
+          {{ frecuencia.dia }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,3 +1,53 @@
-<p>
-  mapa works!
-</p>
+<ion-header>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  <ion-toolbar color="miColor">
+    <ion-title>RUTAS DE CARROS</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal/principal"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <!-- Agregar un placeholder al ion-select -->
+        <ion-select [(ngModel)]="zonaSeleccionada" placeholder="Seleccione la ruta">
+          <ion-select-option value="zona_norte">Zona Norte</ion-select-option>
+          <ion-select-option value="zona_oeste">Zona Oeste</ion-select-option>
+          <ion-select-option value="zona_sud">Zona Sud</ion-select-option>
+          <ion-select-option value="zona_sudeste">Zona Sudeste</ion-select-option>
+          <ion-select-option value="zona_centrica_este">Zona Este/Céntrica</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col size="3" class="ion-text-right">
+        <ion-button (click)="cargarRutas()">Cargar Rutas</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <div class="ion-text-center">
+    <ion-button (click)="mostrarUbicacionActual()">
+      Ubicación Actual
+    </ion-button>
+  </div>
+
+  <div id="map" style="width: 100%; height: 100%;">
+    <script>
+      document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('ruta-polyline')) {
+          const idRuta = event.target.dataset.idRuta;
+          redirigirAVistaDetalleRuta(idRuta);
+        }
+      });
+    </script>
+  </div>
+  
+</ion-content>
+
