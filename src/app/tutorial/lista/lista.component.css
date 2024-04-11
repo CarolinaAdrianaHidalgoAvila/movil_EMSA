@@ -1,0 +1,18 @@
+@charset "UTF-8";
+.video-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  height: 200px; /* Ajusta la altura según tus necesidades */
+  cursor: pointer;
+}
+
+ion-icon {
+  color: #fff;
+}
+
+ion-toolbar {
+  background: #AE1857;
+  color: white;
+}/*# sourceMappingURL=lista.component.css.map */
